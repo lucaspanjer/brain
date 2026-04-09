@@ -14,7 +14,7 @@ A Claude Code plugin for managing a personal knowledge base wiki.
 **For local development:**
 
 ```bash
-claude --plugin-dir /path/to/claude-brain
+claude --plugin-dir /path/to/brain-plugin
 ```
 
 ## Skills
@@ -26,3 +26,5 @@ claude --plugin-dir /path/to/claude-brain
 | `/brain:query` | Query the knowledge base for answers |
 | `/brain:lint` | Run a health check on wiki consistency |
 | `/brain:agent-browser` | Browser automation for web scraping |
+
+Inspired by [@karpathy's LLM wiki approach](https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f#file-llm-wiki-md).
