@@ -1,37 +1,28 @@
-# Claude Brain Skills
+# Brain
 
-Personal skills for managing a knowledge base wiki with Claude Code.
+A Claude Code plugin for managing a personal knowledge base wiki.
 
 ## Installation
 
-Symlink skills to `~/.claude/skills/`:
+**From marketplace:**
+
+```
+/plugin marketplace add lucaspanjer/brain-marketplace
+/plugin install brain@brain-marketplace
+```
+
+**For local development:**
 
 ```bash
-ln -s ~/projects/claude-brain/agent-browser ~/.claude/skills/agent-browser
-ln -s ~/projects/claude-brain/brain-bootstrap ~/.claude/skills/brain-bootstrap
-ln -s ~/projects/claude-brain/brain-ingest ~/.claude/skills/brain-ingest
-ln -s ~/projects/claude-brain/brain-lint ~/.claude/skills/brain-lint
-ln -s ~/projects/claude-brain/brain-query ~/.claude/skills/brain-query
+claude --plugin-dir /path/to/claude-brain
 ```
 
 ## Skills
 
-### agent-browser
-
-Browser automation CLI for AI agents. Use when interacting with websites, filling forms, clicking buttons, taking screenshots, extracting data, or automating any browser task.
-
-### brain-bootstrap
-
-Set up a new personal knowledge base from scratch. Use when starting a fresh brain project or reconfiguring scope and interests.
-
-### brain-ingest
-
-Ingest a web page or article into the knowledge base. Use when adding URLs, articles, or batch-importing sources into the wiki.
-
-### brain-lint
-
-Run a health check on the knowledge base wiki. Finds gaps, inconsistencies, and suggests improvements.
-
-### brain-query
-
-Query the personal knowledge base. Use when looking up topics, searching the wiki, or asking questions the knowledge base might answer.
+| Skill | Description |
+|-------|-------------|
+| `/brain:bootstrap` | Set up a new knowledge base from scratch |
+| `/brain:ingest` | Ingest a web page or article into the wiki |
+| `/brain:query` | Query the knowledge base for answers |
+| `/brain:lint` | Run a health check on wiki consistency |
+| `/brain:agent-browser` | Browser automation for web scraping |
