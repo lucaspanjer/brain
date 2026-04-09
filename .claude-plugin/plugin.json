@@ -1,0 +1,9 @@
+{
+  "name": "brain",
+  "description": "Personal knowledge base skills — ingest web pages, query your wiki, lint for consistency, and bootstrap new brains",
+  "version": "1.0.0",
+  "author": {
+    "name": "Lucas Panjer"
+  },
+  "repository": "https://github.com/lucaspanjer/claude-brain"
+}

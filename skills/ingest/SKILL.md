@@ -1,5 +1,5 @@
 ---
-name: brain-ingest
+name: ingest
 description: Ingest a web page or article into the knowledge base. Use whenever the user shares a URL to learn from, says "ingest this", "add this to the brain", "read this article", "save this page", or pastes a link they want captured and compiled into the wiki. Also triggers for batch ingestion of multiple URLs. If the user drops a URL in conversation and seems to want it remembered or studied — this is the skill.
 allowed-tools: Bash(agent-browser:*)
 ---
@@ -14,7 +14,7 @@ Scrape a web page using the `agent-browser` CLI tool, save it as an immutable so
 
 ## Prerequisites
 
-This skill expects the knowledge base structure from [brain-schema.md](../brain-schema.md) to exist. If it doesn't, tell the user to run brain-bootstrap first.
+This skill expects the knowledge base structure from [brain-schema.md](../brain-schema.md) to exist. If it doesn't, tell the user to run brain:bootstrap first.
 
 ## Step 1: Scrape with agent-browser CLI
 

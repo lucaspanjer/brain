@@ -1,5 +1,5 @@
 ---
-name: brain-bootstrap
+name: bootstrap
 description: Set up a new personal knowledge base from scratch. Use when the user says "set up my brain", "create a knowledge base", "initialize the wiki", or when starting a fresh brain project in an empty or near-empty directory. Also use when the user wants to reconfigure their knowledge base scope or interests.
 ---
 
@@ -16,7 +16,7 @@ Ask the user these questions one at a time. Don't dump them all at once — have
 1. **Name**: What should this knowledge base be called? (e.g., "AI Research Brain", "Startup Playbook", "Robotics Wiki"). This becomes the heading in AGENTS.md.
 2. **Scope**: What domain or topic area does this cover? One sentence that defines the boundary of what belongs here and what doesn't. This helps during ingestion — content outside scope gets flagged rather than silently absorbed.
 3. **Interests**: List the specific subtopics, themes, or questions you care most about. These act as a lens — when ingesting sources, extra attention goes to content touching these areas. Comma-separated or as a list.
-4. **Existing material**: Do you have any files, bookmarks, or URLs you want to seed the brain with? If so, the user can follow up with `brain-ingest` after setup.
+4. **Existing material**: Do you have any files, bookmarks, or URLs you want to seed the brain with? If so, the user can follow up with `brain:ingest` after setup.
 
 ## Scaffold
 
@@ -88,10 +88,10 @@ wiki/
 
 All wiki operations are executed through brain skills. Do not perform these operations ad-hoc — always use the corresponding skill.
 
-- **Ingest** (`/brain-ingest`): Scrape URL → save to raw/ → compile wiki updates → update index and log
-- **Query** (`/brain-query`): Read index → find relevant pages → synthesize answer → save to outputs/
-- **Lint** (`/brain-lint`): Check for contradictions, orphan pages, missing backlinks, stale claims, concepts mentioned but unexplained
-- **Bootstrap** (`/brain-bootstrap`): Set up a new knowledge base from scratch
+- **Ingest** (`/brain:ingest`): Scrape URL → save to raw/ → compile wiki updates → update index and log
+- **Query** (`/brain:query`): Read index → find relevant pages → synthesize answer → save to outputs/
+- **Lint** (`/brain:lint`): Check for contradictions, orphan pages, missing backlinks, stale claims, concepts mentioned but unexplained
+- **Bootstrap** (`/brain:bootstrap`): Set up a new knowledge base from scratch
 
 ## My Interests
 [user's interest list]
@@ -102,6 +102,6 @@ Adapt the template to fit what the user told you — don't include sections that
 ## Wrap Up
 
 After scaffolding, confirm what was created and suggest next steps:
-- "Drop a URL to ingest your first source" (triggers brain-ingest)
-- "Ask a question about your wiki" (triggers brain-query)
-- "Run a health check" (triggers brain-lint)
+- "Drop a URL to ingest your first source" (triggers brain:ingest)
+- "Ask a question about your wiki" (triggers brain:query)
+- "Run a health check" (triggers brain:lint)

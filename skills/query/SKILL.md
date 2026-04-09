@@ -1,5 +1,5 @@
 ---
-name: brain-query
+name: query
 description: Query the personal knowledge base wiki. Use when the user asks a question about topics in their brain, wants to look something up in the wiki, says "what do I know about X", "check the brain for Y", "search the wiki", or asks a question that their accumulated knowledge base might answer. If the user asks a factual or conceptual question that relates to their stated interests or previously ingested sources — check the wiki first.
 ---
 

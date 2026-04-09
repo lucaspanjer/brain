@@ -1,5 +1,5 @@
 ---
-name: brain-lint
+name: lint
 description: Run a health check on the knowledge base wiki. Use when the user says "lint the brain", "check wiki health", "find gaps", "audit the knowledge base", or asks what's missing or inconsistent. Also suggest this after roughly every 10 ingestions to keep the wiki coherent as it grows.
 ---
 
@@ -45,7 +45,7 @@ Flag each of these categories:
 
 **Missing URLs** — Wiki articles with `sources` but no `urls` in their frontmatter. Every article should trace back to original web sources where applicable. Check the corresponding raw file's `source` field to find the URL.
 
-**Schema drift** — Read `AGENTS.md` and check it against the canonical template in `brain-bootstrap/SKILL.md` and the conventions in [brain-schema.md](../brain-schema.md). Flag missing required sections, missing skill references, wiki rules that diverge from the schema, page types that don't match the directory structure, or directory listings that don't match actual `wiki/` subdirectories.
+**Schema drift** — Read `AGENTS.md` and check it against the canonical template in `bootstrap/SKILL.md` and the conventions in [brain-schema.md](../brain-schema.md). Flag missing required sections, missing skill references, wiki rules that diverge from the schema, page types that don't match the directory structure, or directory listings that don't match actual `wiki/` subdirectories.
 
 ### 3. Present findings
 
