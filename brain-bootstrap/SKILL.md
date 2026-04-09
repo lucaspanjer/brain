@@ -5,6 +5,8 @@ description: Set up a new personal knowledge base from scratch. Use when the use
 
 # Brain Bootstrap
 
+## Overview
+
 Interactive setup for a new personal knowledge base. Walks the user through defining what their brain is about, then scaffolds the directory structure and schema.
 
 ## Interview
@@ -18,21 +20,7 @@ Ask the user these questions one at a time. Don't dump them all at once — have
 
 ## Scaffold
 
-After the interview, create the following structure:
-
-```
-raw/                    # Append-only source material
-wiki/                   # LLM-maintained encyclopedia
-  index.md              # Content catalog
-  log.md                # Activity timeline
-  concepts/             # Techniques, patterns, ideas
-  entities/             # People, orgs, projects, tools
-  source-summaries/     # Summaries of specific raw sources
-  comparisons/          # Side-by-side analyses
-outputs/                # Query answers and reports
-```
-
-Only create directories and files that don't already exist — never overwrite.
+Create the directory structure from [brain-schema.md](../brain-schema.md). Only create directories and files that don't already exist — never overwrite.
 
 **wiki/index.md:**
 ```markdown

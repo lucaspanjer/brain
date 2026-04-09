@@ -5,6 +5,8 @@ description: Query the personal knowledge base wiki. Use when the user asks a qu
 
 # Brain Query
 
+## Overview
+
 Answer questions by reading the wiki, not by relying on general knowledge. The wiki represents what the user has specifically chosen to learn and track — answers grounded in it are more relevant than generic responses.
 
 ## Workflow
@@ -25,24 +27,7 @@ If the wiki has partial information, say what it covers and what's missing. Don'
 
 ### 4. Save valuable answers
 
-If the answer is substantive and worth keeping, save it to `outputs/`:
-
-**Filename**: `outputs/YYYY-MM-DD-slugified-question.md`
-
-```markdown
----
-question: "The user's question"
-date: YYYY-MM-DD
-sources:
-  - wiki/concepts/relevant-article.md
-urls:
-  - https://example.com/original-source
----
-
-[The synthesized answer]
-```
-
-Include `urls` from the wiki articles' frontmatter so the user can trace answers back to original web sources.
+If the answer is substantive and worth keeping, save it to `outputs/YYYY-MM-DD-slugified-question.md` with frontmatter containing `question`, `date`, `sources` (wiki paths), and `urls` (from the wiki articles' frontmatter, for traceability to original web sources).
 
 ### 5. Compounding loop
 

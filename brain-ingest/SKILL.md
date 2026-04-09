@@ -6,13 +6,15 @@ allowed-tools: Bash(agent-browser:*)
 
 # Brain Ingest
 
+## Overview
+
 Scrape a web page using the `agent-browser` CLI tool, save it as an immutable source in `raw/`, then compile the knowledge into wiki articles.
 
 **Important**: Use the `agent-browser` CLI via Bash for all browser operations. Do NOT use Playwright MCP tools — they produce raw accessibility trees instead of clean text. The agent-browser CLI is purpose-built for content extraction.
 
 ## Prerequisites
 
-This skill expects the knowledge base structure to exist (`raw/`, `wiki/index.md`, `wiki/log.md`, and subdirectories `wiki/concepts/`, `wiki/entities/`, `wiki/source-summaries/`, `wiki/comparisons/`). If it doesn't, tell the user to run brain-bootstrap first.
+This skill expects the knowledge base structure from [brain-schema.md](../brain-schema.md) to exist. If it doesn't, tell the user to run brain-bootstrap first.
 
 ## Step 1: Scrape with agent-browser CLI
 
@@ -72,24 +74,7 @@ agent-browser --session-name <site> open <url>
 
 ## Step 2: Save to raw/
 
-Create a markdown file with a slugified filename and provenance metadata.
-
-**Filename**: `raw/YYYY-MM-DD-slugified-title.md`
-
-```markdown
----
-title: "Article Title"
-source: https://example.com/article
-ingested: YYYY-MM-DD
-type: article
----
-
-# Article Title
-
-[extracted content, cleaned into readable markdown]
-```
-
-The `type` field: `article`, `paper`, `documentation`, `tweet`, `repo`, `video-transcript`, or `discussion`.
+Create a markdown file using the raw file frontmatter format from [brain-schema.md](../brain-schema.md).
 
 Clean up the text — remove nav, ads, cookie banners — but preserve the author's structure (headings, lists, code blocks). This is a faithful capture, not a rewrite.
 
@@ -134,76 +119,13 @@ Not every ingestion will produce a comparison — only create one when there's g
 
 ### Article placement
 
-Place each article in the subdirectory matching its type:
-- `wiki/concepts/<slugified-topic>.md`
-- `wiki/entities/<slugified-topic>.md`
-- `wiki/source-summaries/<slugified-topic>.md`
-- `wiki/comparisons/<slugified-topic>.md`
+Place each article in the subdirectory matching its page type. Use the frontmatter template, body structure, inline citations, and See Also format from [brain-schema.md](../brain-schema.md).
 
-```markdown
----
-title: Topic Name
-type: concept | entity | source-summary | comparison
-urls:
-  - https://example.com/original-source
-  - https://example.com/another-source
-sources:
-  - raw/YYYY-MM-DD-source-file.md
-related:
-  - other-topic
-created: YYYY-MM-DD
-updated: YYYY-MM-DD
-confidence: high | medium | low
----
-
-One-paragraph summary of this topic.
-
-## Details
-
-[Substantive content with clear headings]
-
-## See Also
-
-### Concepts
-- [[related-concept]]
-
-### Source Summaries
-- [[related-source-summary]]
-```
-
-Group links by type. Omit empty groups. Every concept/entity article should link to its relevant source summaries, and every source summary should link back to the concepts/entities it covers.
-
-The `urls` field preserves the original web URLs of primary sources that informed this article. This provides direct traceability from any wiki concept or entity back to the web. When updating an existing article with a new source, add its URL to the `urls` list.
-
-### Inline citations
-
-Use markdown footnotes to cite sources for key claims — specific numbers, quotes, non-obvious assertions, and attributed opinions. Don't cite every sentence; cite the ones a reader would want to verify.
-
-```markdown
-The model uses RMSNorm instead of LayerNorm and has 4,192 parameters[^1].
-
-[^1]: https://karpathy.github.io/2026/02/12/microgpt/
-```
-
-Footnote labels should be short and sequential (`[^1]`, `[^2]`, ...). Place the footnote definitions at the bottom of the article, before the `## See Also` section. When an article draws from multiple sources, use different footnotes to distinguish which claim comes from where.
-
-Confidence levels:
-- **high** — Multiple corroborating sources or authoritative primary source
-- **medium** — Single source, seems reliable
-- **low** — Mentioned in passing, needs investigation
-
-Cross-reference with `[[topic-name]]` wiki-links. Every article should link to related articles regardless of type, and those should link back.
+When updating an existing article with a new source, add the URL to the `urls` list and the raw file to `sources`.
 
 ## Step 5: Update index and log
 
-**wiki/index.md** — Add one line per new article under the right category (`## Concepts`, `## Entities`, `## Source Summaries`, `## Comparisons`), using the subdirectory path:
-
-```markdown
-- [Topic Name](concepts/topic-name.md) — one-sentence description
-- [Entity Name](entities/entity-name.md) — one-sentence description
-- [Source Title](source-summaries/source-slug.md) — one-sentence description of the source
-- [X vs Y](comparisons/x-vs-y.md) — one-sentence description of the comparison
-```
+**wiki/index.md** — Add one line per new article using the index entry format from [brain-schema.md](../brain-schema.md).
 
 **wiki/log.md** — Append:
 
