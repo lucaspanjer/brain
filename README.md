@@ -14,7 +14,7 @@ A Claude Code plugin for managing a personal knowledge base wiki. See [karpathy/
 **For local development:**
 
 ```bash
-claude --plugin-dir /path/to/claude-brain
+claude --plugin-dir /path/to/brain
 ```
 
 ## Skills
