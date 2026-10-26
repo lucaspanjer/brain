@@ -7,14 +7,14 @@ A Claude Code plugin for managing a personal knowledge base wiki.
 **From marketplace:**
 
 ```
-/plugin marketplace add lucaspanjer/brain-marketplace
+/plugin marketplace add lucaspanjer/brain
 /plugin install brain@brain-marketplace
 ```
 
 **For local development:**
 
 ```bash
-claude --plugin-dir /path/to/brain-plugin
+claude --plugin-dir /path/to/brain
 ```
 
 ## Skills

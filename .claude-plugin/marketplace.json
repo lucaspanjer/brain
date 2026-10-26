@@ -1,0 +1,14 @@
+{
+  "name": "brain-marketplace",
+  "description": "Claude Code Brain Marketplace",
+  "owner": {
+    "name": "Lucas Panjer"
+  },
+  "plugins": [
+    {
+      "name": "brain",
+      "source": "./",
+      "description": "Personal knowledge base skills — ingest web pages, query your wiki, lint for consistency, and bootstrap new brains"
+    }
+  ]
+}
