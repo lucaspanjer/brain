@@ -1,6 +1,6 @@
 # Brain
 
-A Claude Code plugin for managing a personal knowledge base wiki.
+A Claude Code plugin for managing a personal knowledge base wiki. See [karpathy/llm-wiki.md](https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f) for the inspiration.
 
 ## Installation
 
